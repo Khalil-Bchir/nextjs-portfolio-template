@@ -69,4 +69,4 @@ To access the inbox:
 
 ## Demo
 
-Check out the live demo [here](https://personal-portfolio-bay-six.vercel.app/).
+Check out the live demo [here](https://nextjs-portfolio-template-seven.vercel.app/).
