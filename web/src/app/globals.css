@@ -1,0 +1,90 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url("https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;500;600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Space+Mono&display=swap");
+
+@layer base {
+  :root {
+    --background: 210 100% 6%;
+    --foreground: 180 100% 90%;
+
+    --primary: 200 100% 28%;
+    --primary-foreground: 180 100% 90%;
+
+    --secondary: 203 23% 30%;
+    --secondary-foreground: 180 100% 90%;
+
+    --accent: 198 70% 50%;
+    --accent-foreground: 185 10% 13%;
+
+    --destructive: 0 98% 44%;
+    --destructive-foreground: 0 0% 100%;
+
+    --muted: 200 50% 30%;
+    --muted-foreground: 180 100% 90%;
+
+    --card: 210 100% 12%;
+    --card-foreground: 180 100% 90%;
+
+    --popover: 210 100% 15%;
+    --popover-foreground: 180 100% 90%;
+
+    --font-heading: "Bricolage Grotesque", serif;
+    --font-body: "Space Mono", monospace;
+
+    --border: 210 50% 40%;
+    --input: 210 50% 40%;
+    --ring: 180 100% 90%;
+    --radius: 0rem;
+  }
+
+  .dark {
+    --background: 0 0% 3.9%;
+    --foreground: 0 0% 98%;
+
+    --card: 0 0% 3.9%;
+    --card-foreground: 0 0% 98%;
+
+    --popover: 0 0% 3.9%;
+    --popover-foreground: 0 0% 98%;
+
+    --primary: 0 0% 98%;
+    --primary-foreground: 0 0% 9%;
+
+    --secondary: 0 0% 14.9%;
+    --secondary-foreground: 0 0% 98%;
+
+    --muted: 0 0% 14.9%;
+    --muted-foreground: 0 0% 63.9%;
+
+    --accent: 0 0% 14.9%;
+    --accent-foreground: 0 0% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 0 0% 14.9%;
+    --input: 0 0% 14.9%;
+    --ring: 0 0% 83.1%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground font-body;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-heading;
+  }
+}
