@@ -16,7 +16,7 @@ This directory contains the backend code for the portfolio template. It includes
    ```env
    DATABASE_URI=your_mongo_db_uri
    JWT_SECRET=your_secret_key
-   INITIAL_USERNAME=admin
+   INITIAL_USERNAME=admin@example.com
    INITIAL_PASSWORD=admin_password
    PORT=5000
    ```
@@ -24,7 +24,7 @@ This directory contains the backend code for the portfolio template. It includes
 3. **Start the Server**:
 
    ```sh
-   npm start
+   npm run dev
    ```
 
 ## API Endpoints
@@ -35,7 +35,7 @@ This directory contains the backend code for the portfolio template. It includes
   - Request Body:
     ```json
     {
-      "username": "string",
+      "email": "string",
       "password": "string"
     }
     ```

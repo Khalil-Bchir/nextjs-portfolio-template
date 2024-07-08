@@ -1,5 +1,5 @@
 //page.tsx
-import { Component } from "@/components/component/component";
+import { Component } from "@/components/component/portfolio";
 
 export default function Home() {
   return (

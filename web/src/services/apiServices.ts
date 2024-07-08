@@ -31,13 +31,9 @@ export const createForm = async (email: string, subject: string, message: string
 };
 
 // Function to get all forms
-export const getForms = async (token: string) => {
+export const getForms = async () => {
   try {
-    const response = await api.get('/messages', {
-      headers: {
-        'Authorization': `Bearer ${token}`,
-      },
-    });
+    const response = await api.get('/messages');
     return response.data;
   } catch (error: any) {
     throw new Error(error.response?.data?.msg || 'Fetching forms failed');

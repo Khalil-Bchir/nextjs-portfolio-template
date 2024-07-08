@@ -11,24 +11,26 @@ import { login } from '@/services/apiServices';
 import { useAuth } from '@/context/AuthContext';
 import { ArrowLeft } from 'lucide-react';
 
+// Login component definition
 export default function Login() {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [error, setError] = useState('');
-  const { setAuthenticated } = useAuth();
-  const router = useRouter();
+  const [email, setEmail] = useState(''); // State for email input
+  const [password, setPassword] = useState(''); // State for password input
+  const [error, setError] = useState(''); // State for error message
+  const { setAuthenticated } = useAuth(); // useAuth hook to get setAuthenticated function
+  const router = useRouter(); // useRouter hook from Next.js for navigation
 
+  // Handle form submission for login
   const handleLogin = async (event: React.FormEvent) => {
     event.preventDefault();
-    setError('');
+    setError(''); // Clear previous errors
 
     try {
-      const { token } = await login(email, password);
-      localStorage.setItem('token', token);
-      setAuthenticated(true); // Update authentication state
-      router.push('/mailing');
+      const { token } = await login(email, password); // Call login function from apiServices
+      localStorage.setItem('token', token); // Store the token in localStorage
+      setAuthenticated(true); // Set authenticated state to true
+      router.push('/mailing'); // Redirect to mailing page
     } catch (error: any) {
-      setError(error.message);
+      setError(error.message); // Set error message if login fails
     }
   };
 
@@ -36,13 +38,13 @@ export default function Login() {
     <div className="flex min-h-[100dvh] flex-col items-center justify-center bg-background px-4 py-12 sm:px-6 lg:px-8">
       <div className="absolute top-4 left-4">
         <Link href="/" prefetch={false}>
-          <ArrowLeft className="h-10 w-10 hover:text-primary" />
+          <ArrowLeft className="h-10 w-10 hover:text-primary" /> {/* Back arrow link */}
         </Link>
       </div>
       <div className="mx-auto w-full max-w-md space-y-8">
         <div className="flex justify-center">
           <Link href="#" prefetch={false}>
-            <MountainIcon className="h-8 w-8" />
+            <MountainIcon className="h-8 w-8" /> {/* Custom logo */}
             <span className="sr-only">Acme Inc</span>
           </Link>
         </div>
@@ -77,7 +79,7 @@ export default function Login() {
                   required
                 />
               </div>
-              {error && <p className="text-destructive">{error}</p>}
+              {error && <p className="text-destructive">{error}</p>} {/* Display error message if any */}
             </CardContent>
             <CardFooter>
               <Button type="submit" className="w-full">
@@ -91,6 +93,7 @@ export default function Login() {
   );
 }
 
+// Custom MountainIcon component
 function MountainIcon(props: any) {
   return (
     <svg

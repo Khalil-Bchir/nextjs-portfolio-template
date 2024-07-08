@@ -82,13 +82,13 @@ app.post('/api/login', async (req, res) => {
 
 // CRUD operations for the form data
 app.post('/api/messages', async (req, res) => {
-  const { email,name, subject, message } = req.body;
-  if (!email || !subject || !message || !name) {
+  const { email, subject, message } = req.body;
+  if (!email || !subject || !message) {
     return res.status(400).json({ msg: 'All fields are required' });
   }
 
   try {
-    const form = new Form({ email,name,  subject, message });
+    const form = new Form({ email,  subject, message });
     await form.save();
     res.status(201).json(form);
   } catch (error) {
@@ -96,7 +96,7 @@ app.post('/api/messages', async (req, res) => {
   }
 });
 
-app.get('/api/messages', authenticateToken,  async (req, res) => {
+app.get('/api/messages',  async (req, res) => {
   try {
     const forms = await Form.find();
     res.json(forms);
